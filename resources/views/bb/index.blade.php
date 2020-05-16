@@ -1,3 +1,4 @@
+
 @extends('bb/layout')
 @section('content')
 <div class="container ops-main">
@@ -35,6 +36,7 @@
       @endforeach
     </table>
     <div><a href="/bb/create" class="btn btn-default">新規作成</a></div>
+    <div><a href="/home" class="btn btn-default">もどる</a></div>
   </div>
 </div>
 @endsection
