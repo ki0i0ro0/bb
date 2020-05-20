@@ -33,9 +33,6 @@ class bbController extends Controller
      */
     public function edit($id)
     {
-        if (!Auth::check()) {            
-            return view('home');
-        }   
         // DBよりURIパラメータと同じIDを持つBookの情報を取得
         $bb = bb::findOrFail($id);
 
@@ -49,9 +46,6 @@ class bbController extends Controller
      */
     public function update(bbRequest $request, $id)
     {
-        if (!Auth::check()) {
-            return view('home');
-        }            
         $bb = bb::findOrFail($id);
         $bb->name = $request->name;
         $bb->price = $request->price;
@@ -68,9 +62,6 @@ class bbController extends Controller
      */
     public function destroy($id)
     {
-        if (!Auth::check()) {
-            return view('home');
-        }            
         $bb = bb::findOrFail($id);
         $bb->delete();
 
@@ -84,9 +75,6 @@ class bbController extends Controller
      */
     public function create()
     {
-        if (!Auth::check()) {
-            return view('home');
-        }            
         // 空の$bookを渡す
         $bb = new bb();
         return view('bb/create', compact('bb'));
@@ -98,9 +86,6 @@ class bbController extends Controller
      */
     public function store(bbRequest $request)
     {
-        if (!Auth::check()) {
-            return view('home');
-        }            
         $bb = new bb();
         $bb->name = $request->name;
         $bb->price = $request->price;
